@@ -1,0 +1,14 @@
+.DS_Store
+/static
+
+node_modules/
+npm-debug.log*
+
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+coverage/
