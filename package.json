@@ -1,6 +1,6 @@
 {
   "name": "vue-drag-it-dude",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "vuejs drag-n-drop library",
   "main": "src/main.js",
   "repository": {
