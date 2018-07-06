@@ -83,15 +83,15 @@
 
         if (newLeft < 0) {
           newLeft = 0;
-        } else if (newRight > this.parentWidth) {
-          newLeft = this.parentWidth - this.elem.offsetWidth;
+        } else if (newRight > this.parent.w) {
+          newLeft =  this.parent.w - this.elem.offsetWidth;
         } else {
           newLeft = x - this.shiftX;
         }
         if (newTop < 0) {
           newTop = 0;
-        } else if (newBottom > this.parentHeight) {
-          newTop = this.parentHeight - this.elem.offsetHeight;
+        } else if (newBottom > this.parent.h) {
+          newTop = this.parent.h - this.elem.offsetHeight;
         } else {
           newTop = y - this.shiftY;
         }
