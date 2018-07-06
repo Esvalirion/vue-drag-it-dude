@@ -40,6 +40,10 @@
         top: 0,
         elem: null,
         isIos: false,
+        parent: {
+          w: 0,
+          h: 0,
+        },
       };
     },
     watch: {
@@ -99,6 +103,9 @@
       hang(e) {
         this.$emit('activated');
         this.elem = this.$el;
+
+        this.parent.w = this.parentWidth || this.elem.parentNode.offsetWidth;
+        this.parent.h = this.parentWidth || this.elem.parentNode.offsetHeight;
 
         this.shiftX = e.pageX
           ? e.pageX - this.elem.offsetLeft

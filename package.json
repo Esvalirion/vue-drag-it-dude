@@ -1,8 +1,12 @@
 {
   "name": "vue-drag-it-dude",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "vuejs drag-n-drop library",
   "main": "src/main.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Esvalirion/vue-drag-it-dude"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -p"
