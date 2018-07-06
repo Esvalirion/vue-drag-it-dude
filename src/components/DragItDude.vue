@@ -119,19 +119,19 @@
 
         if (e.pageX) {
           if (this.isIos) {
-            document.addEventListener('touchmove', this.elementMove);
+            this.elem.addEventListener('touchmove', this.elementMove);
           } else {
-            document.addEventListener('mousemove', this.elementMove);
+            this.elem.addEventListener('mousemove', this.elementMove);
           }
         } else {
-          document.addEventListener('touchmove', this.elementMove);
+          this.elem.addEventListener('touchmove', this.elementMove);
         }
       },
       drop() {
         this.$emit('dropped');
         document.body.style.overflow = null;
-        document.removeEventListener('mousemove', this.elementMove, false);
-        document.removeEventListener('touchmove', this.elementMove, false);
+        this.elem.removeEventListener('mousemove', this.elementMove, false);
+        this.elem.removeEventListener('touchmove', this.elementMove, false);
         this.elem.onmouseup = null;
         this.elem.ontouchend = null;
       },
