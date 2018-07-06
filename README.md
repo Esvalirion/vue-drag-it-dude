@@ -82,6 +82,12 @@ export default {
     },
     onDragging(key) {
       this.inputItems[key].text = "Weeee!";
+    },
+    onDropped(key) {
+      this.inputItems[key].text = "That's place is awesome!";
+      setTimeout(() => {
+        this.inputItems[key].text = "Just move me!";
+      }, 3000);
     }
   }
 };
@@ -90,9 +96,9 @@ export default {
 
 ## Props
 
-`inputWidth`
-type: `Number`
-Required: false
+`inputWidth`<br>
+type: `Number`<br>
+Required: false<br>
 Default: 0
 
 If you want to dynamically change inner DOM element width, just type something like:
@@ -101,9 +107,9 @@ If you want to dynamically change inner DOM element width, just type something l
 <drag-it-dude :input-width="40"></drag-it-dude>
 ```
 
-`inputHeight`
-type: `Number`
-Required: false
+`inputHeight`<br>
+type: `Number`<br>
+Required: false<br>
 Default: 0
 
 If you want to dynamically change inner DOM element height, just type something like:
@@ -113,9 +119,9 @@ If you want to dynamically change inner DOM element height, just type something 
 ```
 
 
-`parentWidth`
-type: `Number`
-Required: false
+`parentWidth`<br>
+type: `Number`<br>
+Required: false<br>
 Default: `parentNode.offsetWidth` of draggable element 
 
 If you want to limit width of area, within which an element can move:
@@ -126,9 +132,9 @@ If you want to limit width of area, within which an element can move:
 
 
 
-`parentHeight`
-type: `Number`
-Required: false
+`parentHeight`<br>
+type: `Number`<br>
+Required: false<br>
 Default: `parentNode.offsetHeight`of draggable element 
 
 If you want to limit height of area, within which an element can move:
@@ -138,7 +144,7 @@ If you want to limit height of area, within which an element can move:
 ```
 
 ## Events
-`activated`
+`activated`<br>
 Required: false
 
 Called, when element is activated
@@ -147,7 +153,7 @@ Called, when element is activated
 <drag-it-dude @activated="someFunction"></drag-it-dude>
 ```
 
-`dragging`
+`dragging`<br>
 Required: false
 
 Called, when element is draggeing
@@ -156,7 +162,7 @@ Called, when element is draggeing
 <drag-it-dude @dragging="someAnotherFunction"></drag-it-dude>
 ```
 
-`dropped`
+`dropped`<br>
 Required: false
 
 Called, when element release
