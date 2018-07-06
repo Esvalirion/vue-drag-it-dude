@@ -48,14 +48,17 @@
     },
     watch: {
       inputWidth(newInputWidth) {
+        this.parent.w = this.parentWidth || this.elem.parentNode.offsetWidth;
+        this.parent.h = this.parentWidth || this.elem.parentNode.offsetHeight;
+
         if (this.left === 0) return;
-        if (newInputWidth > this.parentWidth - this.left) {
-          const newLeft = this.parentWidth - newInputWidth;
+        if (newInputWidth > this.parent.w - this.left) {
+          const newLeft = this.parent.w - newInputWidth;
           this.left = newLeft < 0 ? 0 : newLeft;
           this.elem.style.left = `${this.left}px`;
         }
-        if (this.inputHeight > this.parentHeight - this.top) {
-          const newTop = this.parentHeight - this.inputHeight;
+        if (this.inputHeight > this.parent.h - this.top) {
+          const newTop = this.parent.h - this.inputHeight;
           this.top = newTop;
           this.elem.style.top = `${this.top}px`;
         }
@@ -125,6 +128,7 @@
         }
       },
       drop() {
+        this.$emit('dropped');
         document.body.style.overflow = null;
         document.removeEventListener('mousemove', this.elementMove, false);
         document.removeEventListener('touchmove', this.elementMove, false);
