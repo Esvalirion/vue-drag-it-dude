@@ -103,7 +103,7 @@ Default: 0
 
 If you want to dynamically change inner DOM element width, just type something like:
 
-```js
+```vue
 <drag-it-dude :input-width="40"></drag-it-dude>
 ```
 
@@ -114,7 +114,7 @@ Default: 0
 
 If you want to dynamically change inner DOM element height, just type something like:
 
-```js
+```vue
 <drag-it-dude :input-height="40"></drag-it-dude>
 ```
 
@@ -126,7 +126,7 @@ Default: `parentNode.offsetWidth` of draggable element
 
 If you want to limit width of area, within which an element can move:
 
-```js
+```vue
 <drag-it-dude :parent-width="500"></drag-it-dude>
 ```
 
@@ -139,7 +139,7 @@ Default: `parentNode.offsetHeight`of draggable element
 
 If you want to limit height of area, within which an element can move:
 
-```js
+```vue
 <drag-it-dude :parent-height="500"></drag-it-dude>
 ```
 
@@ -149,7 +149,7 @@ Required: false
 
 Called, when element is activated
 
-```js
+```vue
 <drag-it-dude @activated="someFunction"></drag-it-dude>
 ```
 
@@ -158,7 +158,7 @@ Required: false
 
 Called, when element is draggeing
 
-```js
+```vue
 <drag-it-dude @dragging="someAnotherFunction"></drag-it-dude>
 ```
 
@@ -167,7 +167,7 @@ Required: false
 
 Called, when element release
 
-```js
+```vue
 <drag-it-dude @dropped="someOtherFunction"></drag-it-dude>
 ```
 
