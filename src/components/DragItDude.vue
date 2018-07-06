@@ -122,6 +122,7 @@
             this.elem.addEventListener('touchmove', this.elementMove);
           } else {
             this.elem.addEventListener('mousemove', this.elementMove);
+            this.elem.addEventListener('mouseleave', this.drop);
           }
         } else {
           this.elem.addEventListener('touchmove', this.elementMove);
