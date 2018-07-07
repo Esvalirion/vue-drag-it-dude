@@ -42,18 +42,19 @@ import DragItDude from 'vue-drag-it-dude'
 Vue.component('vue-drag-it-dude', DragItDude)
 ```
 
+Don't forget to add for the parent element css property `position: relative;`
+
 #### Now use it!
 
 ```vue
 <template>
-  <div id="app">
+  <div id="app" class="parentElement">
     <drag-it-dude
-      v-for="item, key in inputItems"
-      :key="item.id"
-      @activated="onActivated(item.id)"
-      @dragging="onDragging(item.id)"
+      @activated="handleActivated"
+      @dragging="handleDragging"
+      @dropped="handleDropped"
     >
-      <div class="div"><input type="text" :value="item.text"></div>
+      <div class="innerElement">{{ text }}</div>
     </drag-it-dude>
   </div>
 </template>
@@ -66,37 +67,36 @@ export default {
   components: {
     DragItDude
   },
-  data() {
-    return {
-      inputItems: [
-        {
-          text: "Just move me!",
-          id: 0
-        }
-      ]
-    };
-  },
+  data: () => ({
+    text: "Just move me!",
+  }),
   methods: {
-    onActivated(key) {
-      this.inputItems[key].text = "I am ready for great things!";
+    handleActivated() {
+      this.text = "I am ready for great things!";
     },
-    onDragging(key) {
-      this.inputItems[key].text = "Weeee!";
+    handleDragging() {
+      this.text = "Weeee!";
     },
-    onDropped(key) {
-      this.inputItems[key].text = "That's place is awesome!";
+    handleDropped() {
+      this.text = "That's place is awesome!";
       setTimeout(() => {
-        this.inputItems[key].text = "Just move me!";
+        this.text = "Just move me!";
       }, 3000);
     }
   }
 };
 </script>
+
+<style>
+  .parentElement {
+    position: relative;
+  }
+</style>
 ```
 
 ## Props
 
-`inputWidth`<br>
+`width`<br>
 type: `Number`<br>
 Required: false<br>
 Default: 0
@@ -104,10 +104,10 @@ Default: 0
 If you want to dynamically change inner DOM element width, just type something like:
 
 ```vue
-<drag-it-dude :input-width="40"></drag-it-dude>
+<drag-it-dude :width="40"></drag-it-dude>
 ```
 
-`inputHeight`<br>
+`height`<br>
 type: `Number`<br>
 Required: false<br>
 Default: 0
@@ -115,7 +115,7 @@ Default: 0
 If you want to dynamically change inner DOM element height, just type something like:
 
 ```vue
-<drag-it-dude :input-height="40"></drag-it-dude>
+<drag-it-dude :height="40"></drag-it-dude>
 ```
 
 
@@ -174,7 +174,3 @@ Called, when element release
 ## License
 
 [MIT license](LICENSE)
-
-
-
-
