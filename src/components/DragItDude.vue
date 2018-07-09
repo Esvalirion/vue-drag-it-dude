@@ -15,11 +15,11 @@
   export default {
     name: 'drag-it-dude',
     props: {
-      inputWidth: {
+      width: {
         type: Number,
         default: 0,
       },
-      inputHeight: {
+      height: {
         type: Number,
         default: 0,
       },
@@ -32,38 +32,46 @@
         default: 0,
       },
     },
-    data() {
-      return {
-        shiftX: null,
-        shiftY: null,
-        left: 0,
-        top: 0,
-        elem: null,
-        isIos: false,
-        parent: {
-          w: 0,
-          h: 0,
-        },
-      };
-    },
     watch: {
-      inputWidth(newInputWidth) {
-        this.parent.w = this.parentWidth || this.elem.parentNode.offsetWidth;
-        this.parent.h = this.parentWidth || this.elem.parentNode.offsetHeight;
-
+      width(newWidth, oldWidth) {
+        if (newWidth < oldWidth) return;
         if (this.left === 0) return;
-        if (newInputWidth > this.parent.w - this.left) {
-          const newLeft = this.parent.w - newInputWidth;
+
+        this.parent.width = this.parentWidth || this.elem.parentNode.offsetWidth;
+        this.parent.height = this.parentHeight || this.elem.parentNode.offsetHeight;
+
+        if (newWidth > this.parent.width - this.left) {
+          const newLeft = this.parent.width - newWidth;
           this.left = newLeft < 0 ? 0 : newLeft;
           this.elem.style.left = `${this.left}px`;
         }
-        if (this.inputHeight > this.parent.h - this.top) {
-          const newTop = this.parent.h - this.inputHeight;
+      },
+      height(newHeight, oldHeight) {
+        if (newHeight < oldHeight) return;
+        if (this.top === 0) return;
+
+        this.parent.width = this.parentWidth || this.elem.parentNode.offsetWidth;
+        this.parent.height = this.parentWidth || this.elem.parentNode.offsetHeight;
+        
+        if (newHeight > this.parent.height - this.top) {
+          const newTop = this.parent.height - this.height;
           this.top = newTop;
           this.elem.style.top = `${this.top}px`;
         }
       },
     },
+    data: () => ({
+      shiftY: null,
+      shiftX: null,
+      left: 0,
+      top: 0,
+      elem: null,
+      isIos: false,
+      parent: {
+        width: 0,
+        height: 0,
+      },
+    }),
     methods: {
       iosMove(e) {
         if (this.isIos) this.elementMove(e);
@@ -74,27 +82,23 @@
         if (!e.pageX) {
           document.body.style.overflow = 'hidden';
         }
-
         const x = e.pageX || e.changedTouches[0].pageX;
         const y = e.pageY || e.changedTouches[0].pageY;
-
         let newLeft = x - this.shiftX;
         let newTop = y - this.shiftY;
-
         const newRight = x - this.shiftX + this.elem.offsetWidth;
         const newBottom = y - this.shiftY + this.elem.offsetHeight;
-
         if (newLeft < 0) {
           newLeft = 0;
-        } else if (newRight > this.parent.w) {
-          newLeft =  this.parent.w - this.elem.offsetWidth;
+        } else if (newRight > this.parent.width) {
+          newLeft =  this.parent.width - this.elem.offsetWidth;
         } else {
           newLeft = x - this.shiftX;
         }
         if (newTop < 0) {
           newTop = 0;
-        } else if (newBottom > this.parent.h) {
-          newTop = this.parent.h - this.elem.offsetHeight;
+        } else if (newBottom > this.parent.height) {
+          newTop = this.parent.height - this.elem.offsetHeight;
         } else {
           newTop = y - this.shiftY;
         }
@@ -105,18 +109,14 @@
       },
       hang(e) {
         this.$emit('activated');
-        this.elem = this.$el;
-
-        this.parent.w = this.parentWidth || this.elem.parentNode.offsetWidth;
-        this.parent.h = this.parentWidth || this.elem.parentNode.offsetHeight;
-
+        this.parent.width = this.parentWidth || this.elem.parentNode.offsetWidth;
+        this.parent.height = this.parentWidth || this.elem.parentNode.offsetHeight;
         this.shiftX = e.pageX
           ? e.pageX - this.elem.offsetLeft
           : e.changedTouches[0].pageX - this.elem.offsetLeft;
         this.shiftY = e.pageY
           ? e.pageY - this.elem.offsetTop
           : e.changedTouches[0].pageY - this.elem.offsetTop;
-
         if (e.pageX) {
           if (this.isIos) {
             this.elem.addEventListener('touchmove', this.elementMove);
@@ -139,6 +139,7 @@
     },
     mounted() {
       this.isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      this.elem = this.$el;
     },
   };
 </script>
