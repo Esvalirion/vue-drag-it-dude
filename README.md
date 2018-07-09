@@ -42,7 +42,7 @@ import DragItDude from 'vue-drag-it-dude'
 Vue.component('vue-drag-it-dude', DragItDude)
 ```
 
-Don't forget to add for the parent element css property `position: relative;`
+Don't forget to add `position: relative;` for parent element!
 
 #### Now use it!
 
@@ -96,7 +96,7 @@ export default {
 
 ## Props
 
-`width`<br>
+##### `width`
 type: `Number`<br>
 Required: false<br>
 Default: 0
@@ -107,7 +107,7 @@ If you want to dynamically change inner DOM element width, just type something l
 <drag-it-dude :width="40"></drag-it-dude>
 ```
 
-`height`<br>
+##### `height`
 type: `Number`<br>
 Required: false<br>
 Default: 0
@@ -119,7 +119,7 @@ If you want to dynamically change inner DOM element height, just type something 
 ```
 
 
-`parentWidth`<br>
+##### `parentWidth`
 type: `Number`<br>
 Required: false<br>
 Default: `parentNode.offsetWidth` of draggable element 
@@ -132,7 +132,7 @@ If you want to limit width of area, within which an element can move:
 
 
 
-`parentHeight`<br>
+##### `parentHeight`
 type: `Number`<br>
 Required: false<br>
 Default: `parentNode.offsetHeight`of draggable element 
@@ -144,7 +144,7 @@ If you want to limit height of area, within which an element can move:
 ```
 
 ## Events
-`activated`<br>
+##### `activated`
 Required: false
 
 Called, when element is activated
@@ -153,7 +153,7 @@ Called, when element is activated
 <drag-it-dude @activated="someFunction"></drag-it-dude>
 ```
 
-`dragging`<br>
+##### `dragging`
 Required: false
 
 Called, when element is draggeing
@@ -162,7 +162,7 @@ Called, when element is draggeing
 <drag-it-dude @dragging="someAnotherFunction"></drag-it-dude>
 ```
 
-`dropped`<br>
+##### `dropped`
 Required: false
 
 Called, when element release

@@ -8,13 +8,12 @@
     "url": "https://github.com/Esvalirion/vue-drag-it-dude"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -p"
   },
   "author": "Max Novikov",
   "license": "MIT",
-  "dependencies": {
-    "vue": "2.5.16"
+  "peerDependencies": {
+    "vue": "2.x"
   },
   "devDependencies": {
     "babel-core": "6.26.3",
