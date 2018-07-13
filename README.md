@@ -2,6 +2,10 @@
 
 Vue2 component, that allows you to drag object wherever you want
 
+[![npm](https://img.shields.io/npm/v/vue-drag-it-dude.svg)](https://www.npmjs.com/package/vue-drag-it-dude)
+[![npm](https://img.shields.io/npm/dm/vue-drag-it-dude.svg)](https://www.npmjs.com/package/vue-drag-it-dude)
+[![npm](https://img.shields.io/npm/dt/vue-drag-it-dude.svg)](https://www.npmjs.com/package/vue-drag-it-dude)
+
 ## What this can do
 
 * Drag and drop DOM elements inside parent (or document, if parent's size not specified)
