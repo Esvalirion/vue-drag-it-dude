@@ -110,7 +110,7 @@
       hang(e) {
         this.$emit('activated');
         this.parent.width = this.parentWidth || this.elem.parentNode.offsetWidth;
-        this.parent.height = this.parentWidth || this.elem.parentNode.offsetHeight;
+        this.parent.height = this.parentHeight || this.elem.parentNode.offsetHeight;
         this.shiftX = e.pageX
           ? e.pageX - this.elem.offsetLeft
           : e.changedTouches[0].pageX - this.elem.offsetLeft;
