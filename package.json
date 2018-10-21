@@ -12,6 +12,7 @@
     "build:umd": "rollup --config rollup.package.config.js --format umd --file dist/vue-drag-it-dude.umd.js",
     "build:es": "rollup --config rollup.package.config.js --format es --file dist/vue-drag-it-dude.esm.js",
     "build:unpkg": "rollup --config rollup.package.config.js --format iife --file dist/vue-drag-it-dude.min.js",
+    "build:demo": "rimraf docs && rollup --config rollup.demo.config.js --format iife"
   },
   "author": "Max Novikov",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "vue": "2.x"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
     "minimist": "^1.2.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.66.2",
