@@ -15,7 +15,9 @@ Vue2 component, that allows you to drag object wherever you want
 
 ## Demo
 
-[Demo](https://pp6x2qk5qm.codesandbox.io/)
+[Demo](https://Esvalirion.github.io/vue-drag-it-dude/)
+
+[Example](https://github.com/Esvalirion/vue-drag-it-dude/blob/master/docs-src/App.vue)
 
 ## Install
 
@@ -174,6 +176,12 @@ Called, when element release
 ```vue
 <drag-it-dude @dropped="someOtherFunction"></drag-it-dude>
 ```
+
+## How to run it locally
+
+1. Clone repository: `git clone git@github.com:Esvalirion/vue-drag-it-dude.git`
+2. Install cli-service-global: `npm install -g @vue/cli-service-global` [Vue CLI 3 docs](https://cli.vuejs.org/guide/prototyping.html)
+3. Run any vue file with hot reload and static server: `vue serve docs-src/App.vue`
 
 ## License
 
