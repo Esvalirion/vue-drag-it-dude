@@ -2,11 +2,20 @@
   "name": "vue-drag-it-dude",
   "version": "1.1.1",
   "description": "vuejs drag-n-drop library",
-  "main": "src/main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Esvalirion/vue-drag-it-dude"
   },
+  "main": "dist/vue-drag-it-dude.umd.js",
+  "module": "dist/vue-drag-it-dude.esm.js",
+  "unpkg": "dist/vue-drag-it-dude.min.js",
+  "browser": {
+    "./sfc": "src/vue-drag-it-dude.vue"
+  },
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
   "scripts": {
     "build": "npm run build:unpkg && npm run build:es && npm run build:umd",
     "build:umd": "rollup --config rollup.package.config.js --format umd --file dist/vue-drag-it-dude.umd.js",
