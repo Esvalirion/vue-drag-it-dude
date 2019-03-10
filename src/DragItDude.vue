@@ -121,8 +121,8 @@
           if (this.isIos) {
             this.elem.addEventListener('touchmove', this.elementMove);
           } else {
-            this.elem.addEventListener('mousemove', this.elementMove);
-            this.elem.addEventListener('mouseleave', this.drop);
+            this.elem.parentElement.addEventListener('mousemove', this.elementMove);
+            this.elem.parentElement.addEventListener('mouseleave', this.drop);
           }
         } else {
           this.elem.addEventListener('touchmove', this.elementMove);
@@ -131,9 +131,9 @@
       drop() {
         this.$emit('dropped');
         document.body.style.overflow = null;
-        this.elem.removeEventListener('mousemove', this.elementMove, false);
+        this.elem.parentElement.removeEventListener('mousemove', this.elementMove, false);
         this.elem.removeEventListener('touchmove', this.elementMove, false);
-        this.elem.onmouseup = null;
+        this.elem.parentElement.onmouseup = null;
         this.elem.ontouchend = null;
       },
     },
