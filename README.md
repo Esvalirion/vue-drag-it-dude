@@ -177,6 +177,41 @@ Called, when element release
 <drag-it-dude @dropped="someOtherFunction"></drag-it-dude>
 ```
 
+## Nuxt.js
+
+### [no-ssr](https://nuxtjs.org/api/components-no-ssr/)
+
+```vue
+<no-ssr>
+  <drag-it-dude class="stage-settings""
+    @activated="handleActivated"
+    @dragging="handleDragging"
+    @dropped="handleDropped"
+  >
+    // ... your draggable content
+  </drag-it-dude>
+</no-ssr>
+```
+
+### [plugins](https://nuxtjs.org/guide/plugins#codefund_ad)
+
+create file `plugins/drag.js`
+
+```
+import Vue from 'vue';
+import DragItDude from 'vue-drag-it-dude';
+
+Vue.component('vue-drag-it-dude', DragItDude);
+```
+
+update file `nuxt.config.js`
+
+```
+export default {
+  plugins: ['~/plugins/drag'],
+};
+```
+
 ## How to run it locally
 
 1. Clone repository: `git clone git@github.com:Esvalirion/vue-drag-it-dude.git`
